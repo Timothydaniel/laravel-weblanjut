@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('siswa', SiswaController::class);
+
+Route::get('/hello',function(){
+    return "bla bla";
+});
+
+Route::get('/book', [BookController::class, 'index']);
+
+Route::get('/book/{$judul}', [BookController::class, 'viewJudul']);
